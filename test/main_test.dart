@@ -9,7 +9,7 @@ void main() {
       expect(find.byType(MaterialApp), findsOneWidget);
       expect(find.text('Hello there'), findsOneWidget);
     });
-    group('Gesture test', () {
+    group('Gesture and rebuild with the new color test', () {
       testWidgets('Tap test', (WidgetTester tester) async {
         await tester.pumpWidget(const SetStateExample());
         await tester.tap(find.text('Hello there'));
