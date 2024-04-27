@@ -20,9 +20,9 @@ void main() {
     // CubitExample(),
 
     /// This is example with the InheritedWidget and ChangeNotifier.
-    // InheritedColor(
-    //   colorState: ColorState(),
-    //   child: const NotifierExample(),
-    // ),
+    //   InheritedColor(
+    //     colorState: ColorState(),
+    //     child: const NotifierExample(),
+    //   ),
   );
 }

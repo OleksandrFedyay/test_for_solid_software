@@ -1,16 +1,10 @@
 # test_for_solid_software
 
-A new Flutter project.
+The main.dart file contains 3 different ways to solve the test task.
+To run different examples, please, follow the steps:
+1. Comment the active example.
+2. Uncomment the example you want to try and run.
 
-## Getting Started
+The main_test contains the test for the different examples. To complete the widget test follow the 
+steps mentioned above.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
