@@ -14,10 +14,10 @@ import 'package:test_for_solid_software/set_state_example/set_state_example.dart
 void main() {
   runApp(
     ///This is example with setState().
-    const SetStateExample(),
+    // const SetStateExample(),
 
     /// This is example with Cubit.
-    // CubitExample(),
+    CubitExample(),
 
     /// This is example with the InheritedWidget and ChangeNotifier.
     //   InheritedColor(

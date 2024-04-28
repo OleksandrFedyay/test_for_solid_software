@@ -14,6 +14,13 @@ class CubitExample extends StatelessWidget {
   ///Repo where I generate background color.
   final colorRepo = ColorRepo();
 
+  ///[changeBackgroundColor] calls the generateColor() from the Cubit class
+  ///which, in its turn, calls the method from ColorRepo to randomly
+  ///generate color
+  void changeBackgroundColor(BuildContext context) {
+    BlocProvider.of<CubitExampleCubit>(context).generateColor();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,11 +31,17 @@ class CubitExample extends StatelessWidget {
             //Here we use pattern matching, destructing etc.
             switch (state) {
               case CubitExampleInitial(:final initialColor):
-                return InitialPage(initialColor: initialColor);
+                return InitialPage(
+                  initialColor: initialColor,
+                  colorChangeCallback: changeBackgroundColor,
+                );
               case CubitExampleError(:final error):
                 return ErrorPage(error: error);
               case CubitExampleData(:final colorData):
-                return SuccessPage(color: colorData);
+                return SuccessPage(
+                  color: colorData,
+                  colorChangeCallback: changeBackgroundColor,
+                );
             }
           },
         ),
