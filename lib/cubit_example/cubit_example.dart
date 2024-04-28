@@ -25,7 +25,9 @@ class CubitExample extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: BlocProvider(
-        create: (_) => CubitExampleCubit(colorRepo),
+        create: (_) => CubitExampleCubit(
+          colorRepo: colorRepo,
+        ),
         child: BlocBuilder<CubitExampleCubit, CubitExampleState>(
           builder: (_, state) {
             //Here we use pattern matching, destructing etc.

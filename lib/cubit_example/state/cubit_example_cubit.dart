@@ -10,7 +10,7 @@ class CubitExampleCubit extends Cubit<CubitExampleState> {
   final ColorRepo _colorRepo;
 
   ///Constructor
-  CubitExampleCubit(ColorRepo colorRepo)
+  CubitExampleCubit({required ColorRepo colorRepo})
       : _colorRepo = colorRepo,
         super(const CubitExampleInitial(initialColor: Colors.white));
 
