@@ -32,16 +32,14 @@ class _SetStateExampleState extends State<SetStateExample> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: GestureDetector(
-        onTap: changeBackgroundColor,
-        child: Scaffold(
-          backgroundColor: color,
-          body: const Center(
-            child: Text(
-              greeting,
-              style: textStyle,
-            ),
+    return GestureDetector(
+      onTap: changeBackgroundColor,
+      child: Scaffold(
+        backgroundColor: color,
+        body: const Center(
+          child: Text(
+            greeting,
+            style: textStyle,
           ),
         ),
       ),

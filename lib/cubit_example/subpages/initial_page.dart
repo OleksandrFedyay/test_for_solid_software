@@ -10,7 +10,7 @@ class InitialPage extends StatelessWidget {
   final Color initialColor;
 
   ///Callback
-  final ColorChangeCallback colorChangeCallback;
+  final VoidCallback colorChangeCallback;
 
   ///Constructor
   const InitialPage({
@@ -19,17 +19,10 @@ class InitialPage extends StatelessWidget {
     super.key,
   });
 
-  ///[changeBackgroundColor] calls the generateColor() from the Cubit class
-  ///which, in its turn, calls the method from ColorRepo to randomly
-  ///generate color
-  void changeBackgroundColor(BuildContext context) {
-    BlocProvider.of<CubitExampleCubit>(context).generateColor();
-  }
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => changeBackgroundColor(context),
+      onTap: colorChangeCallback,
       child: Scaffold(
         backgroundColor: initialColor,
         body: const Center(

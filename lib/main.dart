@@ -14,15 +14,15 @@ import 'package:test_for_solid_software/set_state_example/set_state_example.dart
 void main() {
   runApp(
     ///This is example with setState().
-    // const SetStateExample(),
+    // const MaterialApp(home: SetStateExample()),
 
     /// This is example with Cubit.
-    CubitExample(),
+    // MaterialApp(home: CubitExample()),
 
     /// This is example with the InheritedWidget and ChangeNotifier.
-    //   InheritedColor(
-    //     colorState: ColorState(),
-    //     child: const NotifierExample(),
-    //   ),
+    InheritedColor(
+      colorState: ColorState(),
+      child: const MaterialApp(home: NotifierExample()),
+    ),
   );
 }

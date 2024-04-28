@@ -11,7 +11,7 @@ class SuccessPage extends StatelessWidget {
   final Color color;
 
   ///Callback
-  final ColorChangeCallback colorChangeCallback;
+  final VoidCallback colorChangeCallback;
 
   ///Constructor
   const SuccessPage({
@@ -20,17 +20,10 @@ class SuccessPage extends StatelessWidget {
     super.key,
   });
 
-  ///[changeBackgroundColor] calls the generateColor() from the Cubit class
-  ///which, in its turn, calls the method from ColorRepo to randomly
-  ///generate color
-  void changeBackgroundColor(BuildContext context) {
-    BlocProvider.of<CubitExampleCubit>(context).generateColor();
-  }
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => changeBackgroundColor(context),
+      onTap: colorChangeCallback,
       child: Scaffold(
         backgroundColor: color,
         body: const Center(

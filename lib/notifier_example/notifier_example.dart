@@ -14,13 +14,11 @@ class NotifierExample extends StatelessWidget {
     return ListenableBuilder(
       listenable: state,
       builder: (_, child) {
-        return MaterialApp(
-          home: GestureDetector(
-            onTap: state.changeColor,
-            child: Scaffold(
-              backgroundColor: state.color,
-              body: child,
-            ),
+        return GestureDetector(
+          onTap: state.changeColor,
+          child: Scaffold(
+            backgroundColor: state.color,
+            body: child,
           ),
         );
       },

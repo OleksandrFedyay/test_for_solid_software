@@ -14,39 +14,37 @@ class CubitExample extends StatelessWidget {
   ///Repo where I generate background color.
   final colorRepo = ColorRepo();
 
-  ///[changeBackgroundColor] calls the generateColor() from the Cubit class
+  ///[_changeBackgroundColor] calls the generateColor() from the Cubit class
   ///which, in its turn, calls the method from ColorRepo to randomly
   ///generate color
-  void changeBackgroundColor(BuildContext context) {
+  void _changeBackgroundColor(BuildContext context) {
     BlocProvider.of<CubitExampleCubit>(context).generateColor();
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: BlocProvider(
-        create: (_) => CubitExampleCubit(
-          colorRepo: colorRepo,
-        ),
-        child: BlocBuilder<CubitExampleCubit, CubitExampleState>(
-          builder: (_, state) {
-            //Here we use pattern matching, destructing etc.
-            switch (state) {
-              case CubitExampleInitial(:final initialColor):
-                return InitialPage(
-                  initialColor: initialColor,
-                  colorChangeCallback: changeBackgroundColor,
-                );
-              case CubitExampleError(:final error):
-                return ErrorPage(error: error);
-              case CubitExampleData(:final colorData):
-                return SuccessPage(
-                  color: colorData,
-                  colorChangeCallback: changeBackgroundColor,
-                );
-            }
-          },
-        ),
+    return BlocProvider(
+      create: (_) => CubitExampleCubit(
+        colorRepo: colorRepo,
+      ),
+      child: BlocBuilder<CubitExampleCubit, CubitExampleState>(
+        builder: (context, state) {
+          //Here we use pattern matching, destructing etc.
+          switch (state) {
+            case CubitExampleInitial(:final initialColor):
+              return InitialPage(
+                initialColor: initialColor,
+                colorChangeCallback: () => _changeBackgroundColor(context),
+              );
+            case CubitExampleError(:final error):
+              return ErrorPage(error: error);
+            case CubitExampleData(:final colorData):
+              return SuccessPage(
+                color: colorData,
+                colorChangeCallback: () => _changeBackgroundColor(context),
+              );
+          }
+        },
       ),
     );
   }
