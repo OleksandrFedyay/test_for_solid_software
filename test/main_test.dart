@@ -14,7 +14,7 @@ void main() {
     'Widget test for SetStateExample',
     () {
       testWidgets('Smoke test', (WidgetTester tester) async {
-        await tester.pumpWidget(const SetStateExample());
+        await tester.pumpWidget(const MaterialApp(home: SetStateExample()));
         expect(find.byType(MaterialApp), findsOneWidget);
         expect(find.text('Hello there'), findsOneWidget);
       });
@@ -24,7 +24,9 @@ void main() {
           testWidgets(
             'Tap test',
             (WidgetTester tester) async {
-              await tester.pumpWidget(const SetStateExample());
+              await tester.pumpWidget(
+                const MaterialApp(home: SetStateExample()),
+              );
               await tester.tap(find.text('Hello there'));
               await tester.pump();
               expect(
@@ -46,7 +48,7 @@ void main() {
     'Widget test for CubitExample',
     () {
       testWidgets('Smoke test', (WidgetTester tester) async {
-        await tester.pumpWidget(CubitExample());
+        await tester.pumpWidget(MaterialApp(home: CubitExample()));
         expect(find.byType(MaterialApp), findsOneWidget);
         expect(find.text('Hello there'), findsOneWidget);
       });
@@ -56,7 +58,7 @@ void main() {
           testWidgets(
             'Tap test',
             (WidgetTester tester) async {
-              await tester.pumpWidget(CubitExample());
+              await tester.pumpWidget(MaterialApp(home: CubitExample()));
               await tester.tap(find.text('Hello there'));
               await tester.pump();
               expect(
@@ -84,7 +86,7 @@ void main() {
             await tester.pumpWidget(
               InheritedColor(
                 colorState: ColorState(),
-                child: const NotifierExample(),
+                child: const MaterialApp(home: NotifierExample()),
               ),
             );
             expect(find.byType(MaterialApp), findsOneWidget);
@@ -101,7 +103,7 @@ void main() {
               await tester.pumpWidget(
                 InheritedColor(
                   colorState: ColorState(),
-                  child: const NotifierExample(),
+                  child: const MaterialApp(home: NotifierExample()),
                 ),
               );
               await tester.tap(find.text('Hello there'));
